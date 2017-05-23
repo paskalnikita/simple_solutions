@@ -105,8 +105,61 @@ int main()
         }
         dist = sqrt(x*x+y*y);
 
-        cout<<"Distance between this two points is "<<dist;
+        cout<<"Distance between this two points is "<<dist<<"\n";
 
+        //from x1 to x2
+        int x_current=x1;
+        int y_current=y1;
+        int steps=0;
+        int random_way;
+        while(true)
+        {
+            random_way=rand()%2;
+            switch (random_way)
+            {
+            case 0:
+                if(x_current<x2)
+                {
+                    x_current++;
+                    square[x_current-1][y_current-1]='.';
+                    steps++;
+                }
+                else if(x_current>x2)
+                {
+                    x_current--;
+                    square[x_current-1][y_current-1]='.';
+                    steps++;
+                }
+            case 1:
+                if(y_current<y2)
+                {
+                    y_current++;
+                    square[x_current-1][y_current-1]='.';
+                    steps++;
+                }
+                else if(y_current>y2)
+                {
+                    y_current--;
+                    square[x_current-1][y_current-1]='.';
+                    steps++;
+                }
+            }
+            if(x_current==x2 && y_current==y2)
+            {
+                square[x_current-1][y_current-1]='!';
+                break;
+            }
+        }
+        cout<<"Steps you made:"<<steps<<"\n";
+        cout<<"Way from 1 point to 2 will look like that: \n";
+        for(int j=side; j>0; j--)
+        {
+            for(int i=1; i<=side; i++)
+            {
+                cout<<square[i-1][j-1]<<" ";
+            }
+            cout<<endl;
+        }
         delete [] square;
     }
     else
