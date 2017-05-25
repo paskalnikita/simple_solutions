@@ -3,3 +3,6 @@
 
 - Distance.cpp & Distance.exe
     - Alows you find distance between two points on сoordinate plane
+
+- number.cpp & number.exe
+    - Simple game which selects a random number and asks you guess it.
